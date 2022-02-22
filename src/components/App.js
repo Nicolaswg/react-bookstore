@@ -1,12 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import Navbar from './Navbar';
+import BookStore from './BookStore';
+import Categories from './Categories';
 
-function App() {
-  return (
-    <div className="App">
-      Basic React Project
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<BookStore />} />
+        <Route path="/categories" element={<Categories />} />
+      </Routes>
+    </Router>
+  </>
+);
 
 export default App;
