@@ -15,6 +15,7 @@ const BookStore = () => {
               title={book.title}
               author={book.author}
               key={book.id}
+              id={book.id}
             />
           ))}
         </ul>
