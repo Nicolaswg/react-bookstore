@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+
 import Navbar from './Navbar';
 import BookStore from './BookStore';
 import Categories from './Categories';
