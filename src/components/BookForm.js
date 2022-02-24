@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
-import { addBook } from '../redux/books/books';
+import { APIbookPost } from '../redux/books/books';
 
 import style from './styles/BookForm.module.css';
 
@@ -16,35 +16,28 @@ const BookForm = () => {
     'History',
   ];
 
-  const [categorie, setCategorie] = useState('');
+  const [category, setCategory] = useState('');
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
   const dispatch = useDispatch();
 
   const onTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
-  const onAuthorChange = (e) => {
-    setAuthor(e.target.value);
-  };
-
   const onCategorieChange = (e) => {
-    setCategorie(e.target.value);
+    setCategory(e.target.value);
   };
 
   const addBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title,
-      categorie,
-      author,
+      category,
     };
-    dispatch(addBook(newBook));
+    dispatch(APIbookPost(newBook));
     setTitle('');
-    setAuthor('');
-    setCategorie('');
+    setCategory('');
   };
 
   return (
@@ -60,18 +53,9 @@ const BookForm = () => {
           onChange={onTitleChange}
           onBlur={onTitleChange}
         />
-        <input
-          type="text"
-          placeholder="Book author"
-          name="author"
-          required
-          value={author}
-          onChange={onAuthorChange}
-          onBlur={onAuthorChange}
-        />
         <select
           name="categorie"
-          value={categorie}
+          value={category}
           onChange={onCategorieChange}
           onBlur={onCategorieChange}
         >
