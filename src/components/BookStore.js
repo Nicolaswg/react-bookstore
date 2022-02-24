@@ -11,11 +11,11 @@ const BookStore = () => {
         <ul className={style.bookList}>
           {bookBox.map((book) => (
             <Book
-              categorie={book.categorie}
+              category={book.category}
               title={book.title}
               author={book.author}
-              key={book.id}
-              id={book.id}
+              key={book.item_id}
+              id={book.item_id}
             />
           ))}
         </ul>
