@@ -22,12 +22,12 @@ const Navbar = () => {
     <>
       <div className={style.panelBg}>
         <nav className={style.navbar}>
-          <h1>Bookstore CMS</h1>
+          <h1 className={style.textStyle}>Bookstore CMS</h1>
           {
             links.map((link) => (
               <>
                 <span>
-                  <NavLink key={link.id} to={link.path} className={style.link}>
+                  <NavLink key={link.id} to={link.path} className={[style.link, style.textStyle].join(' ')}>
                     {link.text}
                   </NavLink>
                 </span>

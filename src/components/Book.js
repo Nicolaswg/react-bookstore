@@ -18,10 +18,10 @@ const Book = (props) => {
 
   return (
     <div className={style.container}>
-      <li className={style.bookItem}>
-        <h3 className={style.subtitle}>{category}</h3>
-        <h2 className={style.title}>{title}</h2>
-        <h3 className={style.subtitle}>{author}</h3>
+      <li className={[style.bookItem, style.itemStyle].join(' ')}>
+        <h3 className={[style.subtitle, style.textStyle].join(' ')}>{category}</h3>
+        <h2 className={[style.title, style.textStyle].join(' ')}>{title}</h2>
+        <h3 className={[style.subtitle, style.textStyle].join(' ')}>{author}</h3>
         <ul className={style.btnList}>
           <li className={style.btn}>
             <button type="button">Comment</button>
@@ -30,7 +30,7 @@ const Book = (props) => {
           </li>
         </ul>
       </li>
-      <div className={style.status}>
+      <div className={[style.status, style.itemStyle].join(' ')}>
         <div className={style.wrapper}>
           <div className={style.progress} />
           <div className={style.statusContent}>
@@ -39,12 +39,14 @@ const Book = (props) => {
           </div>
         </div>
       </div>
-      <div className={style.chapter}>
-        <h4>CURRENT CHAPTER</h4>
-        <h6>Chapter 20</h6>
-        <button type="button" className={style.btnProgress}>
-          Upgrade Progress
-        </button>
+      <div className={[style.chapterWrapper, style.itemStyle].join(' ')}>
+        <div className={style.chapter}>
+          <h4>CURRENT CHAPTER</h4>
+          <h6>Chapter 20</h6>
+          <button type="button" className={style.btnProgress}>
+            Upgrade Progress
+          </button>
+        </div>
       </div>
     </div>
   );
