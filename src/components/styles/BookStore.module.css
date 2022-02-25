@@ -1,13 +1,16 @@
 .bookstoreCMS {
-  width: 100rem;
-  height: 89.625rem;
-  padding: 9rem 3.75rem 7.688rem 6.25rem;
-  background-color: #f5f6fa;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 7.313rem 6.25rem 2rem 6.25rem;
 }
 
 .bookList {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 15px;
 }

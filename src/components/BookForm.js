@@ -18,6 +18,7 @@ const BookForm = () => {
 
   const [category, setCategory] = useState('');
   const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const dispatch = useDispatch();
 
   const onTitleChange = (e) => {
@@ -28,16 +29,22 @@ const BookForm = () => {
     setCategory(e.target.value);
   };
 
+  const onAuthorChange = (e) => {
+    setAuthor(e.target.value);
+  };
+
   const addBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
       item_id: uuidv4(),
       title,
       category,
+      author,
     };
     dispatch(APIbookPost(newBook));
     setTitle('');
     setCategory('');
+    setAuthor('');
   };
 
   return (
@@ -45,6 +52,7 @@ const BookForm = () => {
       <h2 className={style.formTitle}>Add new Book</h2>
       <form className={style.form}>
         <input
+          className="input-form"
           type="text"
           placeholder="Book title"
           name="title"
@@ -52,6 +60,16 @@ const BookForm = () => {
           value={title}
           onChange={onTitleChange}
           onBlur={onTitleChange}
+        />
+        <input
+          className="input"
+          type="text"
+          placeholder="Book Author"
+          name="author"
+          required
+          value={author}
+          onChange={onAuthorChange}
+          onBlur={onAuthorChange}
         />
         <select
           name="categorie"
