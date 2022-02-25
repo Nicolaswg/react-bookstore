@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
 
 import { APIbookPost } from '../redux/books/books';
 
@@ -8,12 +9,13 @@ import style from './styles/BookForm.module.css';
 
 const BookForm = () => {
   const categories = [
-    'Select',
+    '',
     'Action',
     'Science Fiction',
     'Horror',
     'Economy',
     'History',
+    'Lovers',
   ];
 
   const [category, setCategory] = useState('');
@@ -35,7 +37,20 @@ const BookForm = () => {
 
   const addBookToStore = (e) => {
     e.preventDefault();
-    const newBook = {
+
+    let newBook = {};
+
+    if (!title || !author || !category) {
+      return toast.warning('Please fill in all files');
+    }
+
+    if (title.trim().length === 0 || author.trim().length === 0) {
+      setTitle('');
+      setAuthor('');
+      return toast.error('Unable to read data');
+    }
+
+    newBook = {
       item_id: uuidv4(),
       title,
       category,
@@ -45,6 +60,7 @@ const BookForm = () => {
     setTitle('');
     setCategory('');
     setAuthor('');
+    return newBook;
   };
 
   return (
@@ -52,7 +68,7 @@ const BookForm = () => {
       <h2 className={style.formTitle}>Add new Book</h2>
       <form className={style.form}>
         <input
-          className="input-form"
+          className={style.inputForm}
           type="text"
           placeholder="Book title"
           name="title"
@@ -62,7 +78,7 @@ const BookForm = () => {
           onBlur={onTitleChange}
         />
         <input
-          className="input"
+          className={style.inputForm}
           type="text"
           placeholder="Book Author"
           name="author"
@@ -76,6 +92,7 @@ const BookForm = () => {
           value={category}
           onChange={onCategorieChange}
           onBlur={onCategorieChange}
+          className={style.inputSelect}
         >
           {categories.map((type) => (
             <option

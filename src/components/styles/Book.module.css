@@ -59,21 +59,21 @@
 .btn button {
   background: none;
   border: none;
-  color: #0290ff;
+  color: #4386bf;
   cursor: pointer;
 }
 
 .btn button:nth-child(1)::after {
   content: '';
   height: 10px;
-  border: 0.2px solid #0290ff;
+  border: 0.2px solid #4386bf;
   margin-left: 10px;
 }
 
 .btn button:nth-child(2)::after {
   content: '';
   height: 10px;
-  border: 0.2px solid #0290ff;
+  border: 0.2px solid #4386bf;
   margin-left: 10px;
 }
 
@@ -124,4 +124,5 @@
   padding: 12px;
   border-radius: 20px;
   color: #fff;
+  cursor: pointer;
 }

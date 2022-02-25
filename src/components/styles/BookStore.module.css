@@ -14,3 +14,10 @@
   justify-content: center;
   gap: 15px;
 }
+
+.bookList::after {
+  content: '';
+  margin-top: 3rem;
+  width: 100%;
+  border: 1.5px solid #e8e8e8;
+}
