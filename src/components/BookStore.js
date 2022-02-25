@@ -7,8 +7,8 @@ const BookStore = () => {
   const bookBox = useSelector((state) => state.booksReducer);
   return (
     <>
-      <div className={style.bookstoreCMS}>
-        <ul className={style.bookList}>
+      <div className={[style.bookstoreCMS, style.centerColFx].join(' ')}>
+        <ul className={[style.bookList, style.centerColFx].join(' ')}>
           {bookBox.map((book) => (
             <Book
               category={book.category}

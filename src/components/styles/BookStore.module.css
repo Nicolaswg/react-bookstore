@@ -1,13 +1,27 @@
-.bookstoreCMS {
-  width: 100rem;
-  height: 89.625rem;
-  padding: 9rem 3.75rem 7.688rem 6.25rem;
-  background-color: #f5f6fa;
+:root {
+  --color-primary-dark-white: #e8e8e8;
+}
+
+.centerColFx {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.bookstoreCMS {
+  width: 100vw;
+  gap: 20px;
+  padding: 7.313rem 6.25rem 2rem 6.25rem;
 }
 
 .bookList {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+.bookList::after {
+  content: '';
+  margin-top: 3rem;
+  width: 100%;
+  border: 1.5px solid var(--color-primary-dark-white);
 }
